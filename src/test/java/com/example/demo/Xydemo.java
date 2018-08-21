@@ -5,7 +5,10 @@ import java.util.Date;
 
 public class Xydemo {
     public static void main(String[] args) {
-        System.out.println(caculateTime());
+        int a = 10;
+        int b = 20;
+        System.out.println((double)a/b);
+//        System.out.println(caculateTime());
     }
 
     /**

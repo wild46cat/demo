@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/mongo")
 public class MongoController {
     private static MongoClient mongoClient;
