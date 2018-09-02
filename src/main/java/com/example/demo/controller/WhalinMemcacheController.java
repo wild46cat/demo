@@ -16,9 +16,10 @@ public class WhalinMemcacheController {
 
     static {
         try {
-            String[] servers = {"wuxueyou.cn:11211"};
+            String[] servers = {"wuxueyou.cn:11211", "wuxueyou.cn:11212"};
             SockIOPool pool = SockIOPool.getInstance();
             pool.setServers(servers);
+            pool.setHashingAlg(SockIOPool.CONSISTENT_HASH);
             pool.setFailover(true);
             pool.setInitConn(10);
             pool.setMinConn(5);
@@ -40,13 +41,14 @@ public class WhalinMemcacheController {
     public boolean set(String key, String value) {
         System.out.println("key:" + key);
         System.out.println("value:" + value);
-        return memcachedClient.set(key, value,new Date(5000));
+        return memcachedClient.set(key, value, new Date(500000));
     }
 
     @RequestMapping("/get")
     public Object get(String key) {
         System.out.println("key:" + key);
-        return memcachedClient.get(key);
+        Object res = memcachedClient.get(key);
+        return res;
     }
 
     @RequestMapping("/encoder")

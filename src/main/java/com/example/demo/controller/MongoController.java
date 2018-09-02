@@ -1,19 +1,19 @@
 package com.example.demo.controller;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+//import com.mongodb.MongoClient;
+//import com.mongodb.client.MongoCollection;
+//import com.mongodb.client.MongoDatabase;
+//import org.bson.Document;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@RequestMapping("/mongo")
+//@RestController
+//@RequestMapping("/mongo")
 public class MongoController {
-    private static MongoClient mongoClient;
+    /*private static MongoClient mongoClient;
 
     static {
         mongoClient = new MongoClient("wuxueyou.cn", 27017);
@@ -32,6 +32,6 @@ public class MongoController {
         collection.insertMany(documents);
         System.out.println("文档插入成功");
     }
-
+*/
 
 }
