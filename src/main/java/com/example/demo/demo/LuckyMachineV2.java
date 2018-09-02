@@ -5,7 +5,7 @@ import java.util.*;
 public class LuckyMachineV2 {
     private static Integer[][] valueArray = {{40, 60}, {61, 88}, {89, 94}, {95, 99}};
     private static double[] probablity = {0.15, 0.3, 0.4, 0.15};
-    public static double[] realprobablity;
+    private static double[] realprobablity;
 
     static {
         realprobablity = new double[probablity.length + 1];
@@ -29,8 +29,11 @@ public class LuckyMachineV2 {
                 break;
             }
         }
-        List<Integer> list = new ArrayList<>(Arrays.asList(res));
-        list.add(type);
+        List<Integer> list = new ArrayList<>();
+        if (res != null) {
+            list = new ArrayList<>(Arrays.asList(res));
+            list.add(type);
+        }
         return list;
     }
 
