@@ -4,7 +4,7 @@ import com.example.demo.proto.AddressBookProtos;
 
 import java.util.List;
 
-public class TT {
+public class BuilderPattern {
     public static void main(String[] args) {
         Student student = new Student.Builder()
                 .setName("aa")

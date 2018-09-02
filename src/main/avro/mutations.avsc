@@ -1,0 +1,5289 @@
+[
+  {
+    "namespace": "mypipe.avro",
+    "name": "Guid",
+    "type": "fixed",
+    "size": 16
+  },
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "InsertMutation",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "long"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "integers",
+        "type": {
+          "type": "map",
+          "values": "int"
+        }
+      },
+      {
+        "name": "strings",
+        "type": {
+          "type": "map",
+          "values": "string"
+        }
+      },
+      {
+        "name": "longs",
+        "type": {
+          "type": "map",
+          "values": "long"
+        }
+      }
+    ]
+  },
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "UpdateMutation",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "long"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "old_integers",
+        "type": {
+          "type": "map",
+          "values": "int"
+        }
+      },
+      {
+        "name": "old_strings",
+        "type": {
+          "type": "map",
+          "values": "string"
+        }
+      },
+      {
+        "name": "old_longs",
+        "type": {
+          "type": "map",
+          "values": "long"
+        }
+      },
+      {
+        "name": "new_integers",
+        "type": {
+          "type": "map",
+          "values": "int"
+        }
+      },
+      {
+        "name": "new_strings",
+        "type": {
+          "type": "map",
+          "values": "string"
+        }
+      },
+      {
+        "name": "new_longs",
+        "type": {
+          "type": "map",
+          "values": "long"
+        }
+      }
+    ]
+  },
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "DeleteMutation",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "long"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "integers",
+        "type": {
+          "type": "map",
+          "values": "int"
+        }
+      },
+      {
+        "name": "strings",
+        "type": {
+          "type": "map",
+          "values": "string"
+        }
+      },
+      {
+        "name": "longs",
+        "type": {
+          "type": "map",
+          "values": "long"
+        }
+      }
+    ]
+  },
+
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "ForumPostInsert",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "int"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "mypipe.avro.Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "root_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "user_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "parent_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "level",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "status",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "path",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "create_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "auditor",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "audit_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "last_update_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "ForumPostDelete",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "int"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "mypipe.avro.Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "root_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "user_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "parent_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "level",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "status",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "path",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "create_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "auditor",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "audit_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "last_update_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "ForumPostUpdate",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "int"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "mypipe.avro.Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "old_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_root_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_root_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_user_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_user_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_parent_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_parent_id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_level",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "new_level",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "old_status",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "new_status",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "old_path",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "new_path",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "old_create_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_create_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_auditor",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "new_auditor",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "old_audit_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_audit_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "old_last_update_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "new_last_update_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      }
+    ]
+  },
+
+ {
+    "namespace": "mypipe.avro",
+    "type": "record",
+    "name": "ForumUserInsert",
+    "fields": [
+      {
+        "name": "database",
+        "type": "string"
+      },
+      {
+        "name": "table",
+        "type": "string"
+      },
+      {
+        "name": "tableId",
+        "type": "int"
+      },
+      {
+        "name": "txid",
+        "type": [
+          "null",
+          "mypipe.avro.Guid"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "timestamp",
+        "type": "long"
+      },
+      {
+        "name": "id",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "nick_name",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "user_sign",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "platform",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "passwd",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "head_url",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "salt",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      {
+        "name": "create_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "last_update_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "status",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "score",
+        "type": [
+          "float",
+          "null"
+        ]
+      },
+      {
+        "name": "app",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "level",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "level_upd_time",
+        "type": [
+          "long",
+          "null"
+        ]
+      },
+      {
+        "name": "reward_flower_count",
+        "type": [
+          "int",
+          "null"
+        ]
+      }
+    ]
+  },
+  {
+   "namespace": "mypipe.avro",
+      "type": "record",
+      "name": "ForumUserUpdate",
+      "fields": [
+        {
+          "name": "database",
+          "type": "string"
+        },
+        {
+          "name": "table",
+          "type": "string"
+        },
+        {
+          "name": "tableId",
+          "type": "int"
+        },
+        {
+          "name": "txid",
+          "type": [
+            "null",
+            "mypipe.avro.Guid"
+          ],
+          "default": "null"
+        },
+        {
+          "name": "timestamp",
+          "type": "long"
+        },
+        {
+          "name": "old_id",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "new_id",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "old_nick_name",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "new_nick_name",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "old_user_sign",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "new_user_sign",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "old_platform",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "new_platform",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "old_passwd",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "new_passwd",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "old_head_url",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "new_head_url",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "old_salt",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "new_salt",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "old_create_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "new_create_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "old_last_update_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "new_last_update_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "old_status",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "new_status",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "old_score",
+          "type": [
+            "float",
+            "null"
+          ]
+        },
+        {
+          "name": "new_score",
+          "type": [
+            "float",
+            "null"
+          ]
+        },
+        {
+          "name": "old_app",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "new_app",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "old_level",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "new_level",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "old_level_upd_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "new_level_upd_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "old_reward_flower_count",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "new_reward_flower_count",
+          "type": [
+            "int",
+            "null"
+          ]
+        }
+      ]
+
+  },
+  {
+      "namespace": "mypipe.avro",
+      "type": "record",
+      "name": "ForumUserDelete",
+      "fields": [
+        {
+          "name": "database",
+          "type": "string"
+        },
+        {
+          "name": "table",
+          "type": "string"
+        },
+        {
+          "name": "tableId",
+          "type": "int"
+        },
+        {
+          "name": "txid",
+          "type": [
+            "null",
+            "mypipe.avro.Guid"
+          ],
+          "default": "null"
+        },
+        {
+          "name": "timestamp",
+          "type": "long"
+        },
+        {
+          "name": "id",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "nick_name",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "user_sign",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "platform",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "passwd",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "head_url",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "salt",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        {
+          "name": "create_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "last_update_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "status",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "score",
+          "type": [
+            "float",
+            "null"
+          ]
+        },
+        {
+          "name": "app",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "level",
+          "type": [
+            "int",
+            "null"
+          ]
+        },
+        {
+          "name": "level_upd_time",
+          "type": [
+            "long",
+            "null"
+          ]
+        },
+        {
+          "name": "reward_flower_count",
+          "type": [
+            "int",
+            "null"
+          ]
+        }
+      ]
+    },
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AdminOperateLogInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },{
+            "name": "obj_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },{
+            "name": "obj_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },{
+            "name": "operater_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "deal_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "action_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },{
+            "name": "action_reason",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "remarks",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        ]
+      },
+
+      {
+       "namespace": "mypipe.avro",
+          "type": "record",
+          "name": "AdminOperateLogUpdate",
+          "fields": [
+            {
+              "name": "database",
+              "type": "string"
+            },
+            {
+              "name": "table",
+              "type": "string"
+            },
+            {
+              "name": "tableId",
+              "type": "int"
+            },
+            {
+              "name": "txid",
+              "type": [
+                "null",
+                "mypipe.avro.Guid"
+              ],
+              "default": "null"
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "old_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "new_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },{
+              "name": "old_obj_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "new_obj_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },{
+              "name": "old_obj_type",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "new_obj_type",
+              "type": [
+                "int",
+                "null"
+              ]
+            },{
+              "name": "old_operater_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "new_operater_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },{
+              "name": "old_deal_time",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "new_deal_time",
+              "type": [
+                "long",
+                "null"
+              ]
+            },{
+              "name": "old_action_type",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "new_action_type",
+              "type": [
+                "int",
+                "null"
+              ]
+            },{
+              "name": "old_action_reason",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "new_action_reason",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "old_remarks",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "new_remarks",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          ]
+        },
+        {
+            "namespace": "mypipe.avro",
+            "type": "record",
+            "name": "AdminOperateLogDelete",
+            "fields": [
+              {
+                "name": "database",
+                "type": "string"
+              },
+              {
+                "name": "table",
+                "type": "string"
+              },
+              {
+                "name": "tableId",
+                "type": "int"
+              },
+              {
+                "name": "txid",
+                "type": [
+                  "null",
+                  "mypipe.avro.Guid"
+                ],
+                "default": "null"
+              },
+              {
+                "name": "timestamp",
+                "type": "long"
+              },
+              {
+                "name": "id",
+                "type": [
+                  "long",
+                  "null"
+                ]
+              },{
+                "name": "obj_id",
+                "type": [
+                  "long",
+                  "null"
+                ]
+              },{
+                "name": "obj_type",
+                "type": [
+                  "int",
+                  "null"
+                ]
+              },{
+                "name": "operater_id",
+                "type": [
+                  "long",
+                  "null"
+                ]
+              },{
+                "name": "deal_time",
+                "type": [
+                  "long",
+                  "null"
+                ]
+              },{
+                "name": "action_type",
+                "type": [
+                  "int",
+                  "null"
+                ]
+              },{
+                "name": "action_reason",
+                "type": [
+                  "int",
+                  "null"
+                ]
+              },{
+                "name": "remarks",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            ]
+
+          },
+
+        {
+           "namespace": "mypipe.avro",
+           "type": "record",
+           "name": "ForumGroupInsert",
+           "fields": [
+             {
+               "name": "database",
+               "type": "string"
+             },
+             {
+               "name": "table",
+               "type": "string"
+             },
+             {
+               "name": "tableId",
+               "type": "int"
+             },
+             {
+               "name": "txid",
+               "type": [
+                 "null",
+                 "mypipe.avro.Guid"
+               ],
+               "default": "null"
+             },
+             {
+               "name": "timestamp",
+               "type": "long"
+             },
+             {
+               "name": "id",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "title",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "description",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "owner_ids",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+              {
+                 "name": "last_update_time",
+                 "type": [
+                   "long",
+                   "null"
+                 ]
+               },
+             {
+               "name": "status",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "pic_url",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "key_words",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "order_weight",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "kind",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "topic_order",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "show_in_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "detail_sort",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "crawler_tag",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "embody",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "owner_id",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "is_signin",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_start",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_end",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_times",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "default_option",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "read_only",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "is_in_white_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "anonymous",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "sort_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "embody_group",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             }
+
+           ]
+         },
+
+       {
+          "namespace": "mypipe.avro",
+             "type": "record",
+             "name": "ForumGroupUpdate",
+             "fields": [
+               {
+                 "name": "database",
+                 "type": "string"
+               },
+               {
+                 "name": "table",
+                 "type": "string"
+               },
+               {
+                 "name": "tableId",
+                 "type": "int"
+               },
+               {
+                 "name": "txid",
+                 "type": [
+                   "null",
+                   "mypipe.avro.Guid"
+                 ],
+                 "default": "null"
+               },
+               {
+                 "name": "timestamp",
+                 "type": "long"
+               },
+
+              {
+                 "name": "old_id",
+                 "type": [
+                   "int",
+                   "null"
+                 ]
+               },
+
+              {
+                 "name": "new_id",
+                 "type": [
+                   "int",
+                   "null"
+                 ]
+               },
+
+             {
+               "name": "old_title",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_title",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_description",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_description",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_owner_ids",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_owner_ids",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+              {
+                 "name": "old_last_update_time",
+                 "type": [
+                   "long",
+                   "null"
+                 ]
+               },
+
+              {
+                 "name": "new_last_update_time",
+                 "type": [
+                   "long",
+                   "null"
+                 ]
+               },
+
+
+             {
+               "name": "old_status",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_status",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_pic_url",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_pic_url",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_key_words",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_key_words",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_order_weight",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_order_weight",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_kind",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_kind",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_topic_order",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_topic_order",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_show_in_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_show_in_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_detail_sort",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_detail_sort",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_crawler_tag",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_crawler_tag",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_embody",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_embody",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+
+             {
+               "name": "old_owner_id",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_owner_id",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_is_signin",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_is_signin",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_signin_start",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_signin_start",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_signin_end",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_signin_end",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_signin_times",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_signin_times",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_default_option",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_default_option",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_read_only",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_read_only",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_is_in_white_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_is_in_white_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_anonymous",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_anonymous",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_sort_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "new_sort_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+
+             {
+               "name": "old_embody_group",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "new_embody_group",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             }
+
+             ]
+         },
+
+      {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "ForumGroupDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+
+            {
+               "name": "title",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "description",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "owner_ids",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+              {
+                 "name": "last_update_time",
+                 "type": [
+                   "long",
+                   "null"
+                 ]
+               },
+             {
+               "name": "status",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "pic_url",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "key_words",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "order_weight",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "kind",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "topic_order",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "show_in_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "detail_sort",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "crawler_tag",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "embody",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "owner_id",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "is_signin",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_start",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_end",
+               "type": [
+                 "long",
+                 "null"
+               ]
+             },
+             {
+               "name": "signin_times",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "default_option",
+               "type": [
+                 "string",
+                 "null"
+               ]
+             },
+             {
+               "name": "read_only",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "is_in_white_list",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "anonymous",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "sort_type",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             },
+             {
+               "name": "embody_group",
+               "type": [
+                 "int",
+                 "null"
+               ]
+             }
+
+        ]
+      },
+        {
+          "namespace": "mypipe.avro",
+          "type": "record",
+          "name": "ForumGroupPostInsert",
+          "fields": [
+            {
+              "name": "database",
+              "type": "string"
+            },
+            {
+              "name": "table",
+              "type": "string"
+            },
+            {
+              "name": "tableId",
+              "type": "int"
+            },
+            {
+              "name": "txid",
+              "type": [
+                "null",
+                "mypipe.avro.Guid"
+              ],
+              "default": "null"
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+
+            {
+              "name": "group_id",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "post_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "score",
+              "type": [
+                "double",
+                "null"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "mypipe.avro",
+          "type": "record",
+          "name": "ForumGroupPostDelete",
+          "fields": [
+            {
+              "name": "database",
+              "type": "string"
+            },
+            {
+              "name": "table",
+              "type": "string"
+            },
+            {
+              "name": "tableId",
+              "type": "int"
+            },
+            {
+              "name": "txid",
+              "type": [
+                "null",
+                "mypipe.avro.Guid"
+              ],
+              "default": "null"
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "group_id",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "post_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "score",
+              "type": [
+                "double",
+                "null"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "mypipe.avro",
+          "type": "record",
+          "name": "ForumGroupPostUpdate",
+          "fields": [
+            {
+              "name": "database",
+              "type": "string"
+            },
+            {
+              "name": "table",
+              "type": "string"
+            },
+            {
+              "name": "tableId",
+              "type": "int"
+            },
+            {
+              "name": "txid",
+              "type": [
+                "null",
+                "mypipe.avro.Guid"
+              ],
+              "default": "null"
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "old_group_id",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "new_group_id",
+              "type": [
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "old_post_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "new_post_id",
+              "type": [
+                "long",
+                "null"
+              ]
+            },
+            {
+              "name": "old_score",
+              "type": [
+                "double",
+                "null"
+              ]
+            },
+            {
+              "name": "new_score",
+              "type": [
+                "double",
+                "null"
+              ]
+            }
+          ]
+        },
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapScenarioInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "cover_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+
+          {
+            "name": "device_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "android_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "ios_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "share_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "sort_weight",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "source_work_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+        },
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapScenarioDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "cover_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "device_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "android_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "ios_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "share_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "sort_weight",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "source_work_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+           ]
+        },
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "SnapScenarioUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_cover_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_cover_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_device_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_device_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_android_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "new_android_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "old_ios_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "new_ios_min_version",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "old_recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_share_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_share_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_sort_weight",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_sort_weight",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_source_work_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_source_work_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+      },
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapWorksInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "works_pic",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "movie_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+
+          {
+            "name": "publish_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "scenario_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "shoot_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "status_from",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "show_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+              "name": "sync_to_snap",
+              "type": [
+                "int",
+                "null"
+              ]
+          }
+         ]
+        },
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapWorksDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "works_pic",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "movie_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "publish_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "scenario_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "shoot_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "status_from",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "show_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "sync_to_snap",
+            "type": [
+              "int",
+              "null"
+            ]
+          }
+         ]
+        },
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "SnapWorksUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_works_pic",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_works_pic",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_movie_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_movie_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_desc",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_publish_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_publish_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_scenario_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_scenario_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_user_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_shoot_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_shoot_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status_from",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status_from",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_show_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_show_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_recommend_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+         {
+           "name": "old_sync_to_snap",
+           "type": [
+             "int",
+             "null"
+           ]
+         },
+         {
+            "name": "new_sync_to_snap",
+            "type": [
+              "int",
+              "null"
+            ]
+         }
+        ]
+      },
+
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapUserInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "nick_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "head_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "sex",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+
+          {
+            "name": "user_sign",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "platform",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "profile",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "weibo_uid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "weibo_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+         ]
+       },
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapUserDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "nick_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "head_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "sex",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "user_sign",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "platform",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "profile",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "weibo_uid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "weibo_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+         ]
+        },
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "SnapUserUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_nick_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_nick_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_head_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_head_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_sex",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_sex",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_user_sign",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_user_sign",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_platform",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_platform",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_profile",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_profile",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_weibo_uid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_weibo_uid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_weibo_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_weibo_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        ]
+      },
+
+
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapMusicInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "singer_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+
+          {
+            "name": "duration_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "start_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "search_keyword",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+       },
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "SnapMusicDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "singer_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "duration_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "start_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "search_keyword",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+        },
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "SnapMusicUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_singer_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_singer_name",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_source_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_duration_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_duration_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_start_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_start_ms",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_search_keyword",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_search_keyword",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_last_update_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+        ]
+      },
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusRedPacketInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "total_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "total_quantity",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "task_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+       },
+
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "AquariusRedPacketUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_total_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "new_total_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "old_total_quantity",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_total_quantity",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_task_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_task_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+
+        ]
+      },
+
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusRedPacketDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "total_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "total_quantity",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "task_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "status",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "create_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+        },
+
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusRedPacketReceiveRecordInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "is_transaction_record",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "media_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "media_length",
+            "type": [
+              "int",
+              "null"
+            ]
+          }
+         ]
+       },
+
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "AquariusRedPacketReceiveRecordUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "new_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_is_transaction_record",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_is_transaction_record",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_media_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_media_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_media_length",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_media_length",
+            "type": [
+              "int",
+              "null"
+            ]
+          }
+        ]
+      },
+
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusRedPacketReceiveRecordDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "is_transaction_record",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "media_url",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "media_length",
+            "type": [
+              "int",
+              "null"
+            ]
+          }
+         ]
+        },
+
+
+
+
+     {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusTransactionLogInsert",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "transaction_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "source_from_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+       },
+
+        {
+         "namespace": "mypipe.avro",
+         "type": "record",
+         "name": "AquariusTransactionLogUpdate",
+         "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "old_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_transaction_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_transaction_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "new_open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "old_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "new_amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "old_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "new_type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "old_source_from_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_source_from_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "old_red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "new_red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+        ]
+      },
+
+       {
+        "namespace": "mypipe.avro",
+        "type": "record",
+        "name": "AquariusTransactionLogDelete",
+        "fields": [
+          {
+            "name": "database",
+            "type": "string"
+          },
+          {
+            "name": "table",
+            "type": "string"
+          },
+          {
+            "name": "tableId",
+            "type": "int"
+          },
+          {
+            "name": "txid",
+            "type": [
+              "null",
+              "mypipe.avro.Guid"
+            ],
+            "default": "null"
+          },
+          {
+            "name": "timestamp",
+            "type": "long"
+          },
+          {
+            "name": "id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "transaction_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "open_id",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          {
+            "name": "amount",
+            "type": [
+              "double",
+              "null"
+            ]
+          },
+          {
+            "name": "create_time",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "type",
+            "type": [
+              "int",
+              "null"
+            ]
+          },
+          {
+            "name": "source_from_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          },
+          {
+            "name": "red_packet_id",
+            "type": [
+              "long",
+              "null"
+            ]
+          }
+         ]
+        }
+
+]

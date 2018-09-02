@@ -16,7 +16,7 @@ public class WhalinMemcacheController {
 
     static {
         try {
-            String[] servers = {"wuxueyou.cn:11211", "wuxueyou.cn:11212"};
+            String[] servers = {"wuxueyou.cn:11211", "wuxueyou.cn:11212", "wuxueyou.cn:11213"};
             SockIOPool pool = SockIOPool.getInstance();
             pool.setServers(servers);
             pool.setHashingAlg(SockIOPool.CONSISTENT_HASH);
