@@ -2,13 +2,17 @@ package com.example.demo;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class Xydemo {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 20;
-        System.out.println((double)a/b);
+//        int a = 10;
+//        int b = 20;
+//        System.out.println((double)a/b);
 //        System.out.println(caculateTime());
+        Random r  = new Random();
+        System.out.println(r.nextInt(10));
+        System.out.println(r.nextInt(10));
     }
 
     /**
