@@ -16,5 +16,7 @@ public class LoggerDemo {
         logger.info(String.format("success generateMediaId app[%s] mediaUrl[%s] fileType[%s] fileSuffix[%s]",
                 appId, mediaUrl, fileType, fileSuffix));
         logger.info(String.format("success downloadToByte url[%s]", url));
+        logger.info(String.format("getAccessTokenFromWeChatServerWithProxies ip:%s,port:%s backip:%s,backport:%s,res:%s",
+                1, 2, 3, 4, 5));
     }
 }

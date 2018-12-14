@@ -16,6 +16,8 @@ public class TimeDemo {
         System.out.println(dateTime.toString("YYYY-MM-dd HH:mm:ss.SSS"));
         System.out.println(dateTime.getMillis());
         DateTime dateTime2 = dateTime.plusDays(2);
+        System.out.println(dateTime.toString("YYYY-MM-dd HH:mm:ss.SSS"));
+        System.out.println(dateTime.getMillis());
         System.out.println(dateTime2.toString("YYYY-MM-dd HH:mm:ss.SSS"));
         System.out.println(Days.daysBetween(dateTime2, dateTime).getDays());
     }
