@@ -1,6 +1,7 @@
 package com.example.demo.WeChatDemo;
 
 import com.google.common.base.Optional;
+import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.methods.ByteArrayRequestEntity;
@@ -16,12 +17,8 @@ import org.apache.http.protocol.HTTP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.*;
+import java.net.*;
 
 
 /**
@@ -108,12 +105,7 @@ public class HttpUtils {
         httpGet.getParams().setCookiePolicy(CookiePolicy.IGNORE_COOKIES);
         if (proxy != null) {
             HostConfiguration config = httpClient.getHostConfiguration();
-            config.setProxy(proxy.getHostName(),proxy.getPort());
-////             设置认证
-//            CredentialsProvider provider = new BasicCredentialsProvider();
-//            org.apache.http.HttpHost pp = new org.apache.http.HttpHost(proxy.getHostName(),proxy.getPort(),"http");
-//            provider.setCredentials(new AuthScope(pp), new org.apache.http.auth.UsernamePasswordCredentials("aa", "123456"));
-//            config.setProxy(pp.getHostName(),pp.getPort());
+            config.setProxy(proxy.getHostName(), proxy.getPort());
         }
         try {
             httpClient.executeMethod(httpGet);
@@ -126,6 +118,29 @@ public class HttpUtils {
             httpClient = null;
         }
         return rtn;
+    }
+
+    public static String httpUrlConnectionWithProxy(String url, String proxyHost, int proxyPort, String data) throws Exception {
+        // 创建代理服务器
+        InetSocketAddress addr = new InetSocketAddress(proxyHost, proxyPort);
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, addr);
+        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection(proxy);
+        conn.setRequestMethod("GET");
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
+        conn.connect();
+        System.out.println("now code is:" + conn.getResponseCode());
+        InputStream in = conn.getInputStream();
+        // 读取服务器端返回的内容
+        InputStream is = conn.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is, "utf-8");
+        BufferedReader br = new BufferedReader(isr);
+        StringBuffer buffer = new StringBuffer();
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            buffer.append(line);
+        }
+        return buffer.toString();
     }
 
     public static String httpPostVal(String url) {

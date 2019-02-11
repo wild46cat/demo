@@ -4,11 +4,18 @@ package com.example.demo.WeChatDemo;
 import org.apache.commons.httpclient.HttpHost;
 
 
-public class HttpTest {
+public class HttpProxyTest {
+
+    public static void main1(String[] args) throws Exception {
+        String url = "http://www.wuxueyou.cn";
+        String s = HttpUtils.httpUrlConnectionWithProxy(url, "10.10.30.17", 3128,"aabbccdd");
+        System.out.println(123);
+        System.out.println(s);
+    }
 
     public static void main(String[] args) throws Exception {
         String url = "http://bbsadmintest.j.cn";
-        String s = HttpUtils.httpGetValWithProxies(url,new HttpHost("10.10.30.17",3128));
+        String s = HttpUtils.httpGetValWithProxies(url, new HttpHost("10.10.30.17", 3128));
         System.out.println(s);
     }
 
