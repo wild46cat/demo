@@ -6,14 +6,48 @@ import org.apache.commons.httpclient.HttpHost;
 
 public class HttpProxyTest {
 
-    public static void main1(String[] args) throws Exception {
-        String url = "http://www.wuxueyou.cn";
-        String s = HttpUtils.httpUrlConnectionWithProxy(url, "10.10.30.17", 3128,"aabbccdd");
-        System.out.println(123);
+    public static void main(String[] args) throws Exception {
+        int k = 0;
+        if (args != null) {
+            k = Integer.valueOf(args[0]);
+        }
+        String url = "https://bbs.j.cn/api/postListForMiniProgram";
+        String url2 = "http://www.wuxueyou.cn";
+        String s = "";
+        switch (k) {
+            case 0:
+                System.out.println("0----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url, "10.10.30.17", 3128, "aabbccdd");
+                break;
+            case 1:
+                System.out.println("1----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url, "10.10.30.9", 3128, "aabbccdd");
+                break;
+            case 2:
+                System.out.println("2----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url, "", 0, "aabbccdd");
+                break;
+            case 3:
+                System.out.println("3----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url2, "10.10.30.17", 3128, "aabbccdd");
+                break;
+            case 4:
+                System.out.println("4----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url2, "10.10.30.9", 3128, "aabbccdd");
+                break;
+            case 5:
+                System.out.println("5----------");
+                s = HttpUtils.httpUrlConnectionWithProxy(url2, "", 0, "aabbccdd");
+                break;
+            default:
+                s = "ok";
+                break;
+
+        }
         System.out.println(s);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main1(String[] args) throws Exception {
         String url = "http://bbsadmintest.j.cn";
         String s = HttpUtils.httpGetValWithProxies(url, new HttpHost("10.10.30.17", 3128));
         System.out.println(s);

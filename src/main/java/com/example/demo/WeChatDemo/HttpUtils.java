@@ -1,7 +1,6 @@
 package com.example.demo.WeChatDemo;
 
 import com.google.common.base.Optional;
-import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.methods.ByteArrayRequestEntity;
@@ -10,15 +9,21 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.protocol.HTTP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
-import java.net.*;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+import java.net.URLConnection;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 
 
 /**
@@ -120,17 +125,41 @@ public class HttpUtils {
         return rtn;
     }
 
-    public static String httpUrlConnectionWithProxy(String url, String proxyHost, int proxyPort, String data) throws Exception {
-        // 创建代理服务器
-        InetSocketAddress addr = new InetSocketAddress(proxyHost, proxyPort);
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, addr);
-        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection(proxy);
+    public static String httpUrlConnectionWithProxy(String requestUrl, String proxyHost, int proxyPort, String data) throws Exception {
+        // 实例化密钥库
+        KeyStore ks = KeyStore.getInstance("PKCS12");
+        String password = "1523634521";
+        // 获得密钥库文件流
+        InputStream fis = HttpUtils.class.getClassLoader().getResourceAsStream("1523634521_cert.p12");
+        // 加载密钥库
+        ks.load(fis, password.toCharArray());
+        // 关闭密钥库文件流
+        fis.close();
+        // 实例化密钥库
+        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        // 初始化密钥工厂
+        kmf.init(ks, password.toCharArray());
+        // 创建SSLContext
+        SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
+        sslContext.init(kmf.getKeyManagers(), null, new SecureRandom());
+        // 获取SSLSocketFactory对象
+        SSLSocketFactory ssf = sslContext.getSocketFactory();
+        HttpsURLConnection conn;
+        URL url =new URL(null, requestUrl, new sun.net.www.protocol.https.Handler());
+        if (StringUtils.isNotBlank(proxyHost)) {
+            // 创建代理服务器
+            InetSocketAddress addr = new InetSocketAddress(proxyHost, proxyPort);
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, addr);
+            conn = (HttpsURLConnection) url.openConnection(proxy);
+        } else {
+            conn = (HttpsURLConnection) url.openConnection();
+        }
+        conn.setSSLSocketFactory(ssf);
         conn.setRequestMethod("GET");
         conn.setDoOutput(true);
         conn.setDoInput(true);
         conn.connect();
         System.out.println("now code is:" + conn.getResponseCode());
-        InputStream in = conn.getInputStream();
         // 读取服务器端返回的内容
         InputStream is = conn.getInputStream();
         InputStreamReader isr = new InputStreamReader(is, "utf-8");
