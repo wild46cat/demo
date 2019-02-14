@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Component
 public class TestTask {
-    @Scheduled(cron = "0/5 * * * * ?")
+//    @Scheduled(cron = "0/5 * * * * ?")
     public void test() {
         Thread thread = new Thread(new Exetask());
         thread.start();
