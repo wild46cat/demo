@@ -16,6 +16,8 @@ public class TimeDemo {
         System.out.println(123);
 //      日期to字符串
         DateTime dateTime = new DateTime();
+
+        System.out.println(dateTime.getMillis());
         System.out.println(dateTime.toString("YYYY-MM-dd HH:mm:ss.SSS"));
         System.out.println(dateTime.getMillis());
 //        日期加减
