@@ -17,7 +17,6 @@ public class LuckyMachineV2 {
 
     public static List<Integer> runLuckyMachine() {
         double k = Math.random();
-        System.out.println(k);
         Integer[] res = null;
         int type = 0;
         for (int i = 0; i < realprobablity.length - 1; i++) {
@@ -35,6 +34,12 @@ public class LuckyMachineV2 {
             list.add(type);
         }
         return list;
+    }
+
+    public static int runLuckMachine() {
+        List<Integer> list = runLuckyMachine();
+        int r1 = (int) (Math.random() * (list.get(1) - list.get(0))) + list.get(0);
+        return r1;
     }
 
     public static void main(String[] args) {
@@ -72,6 +77,9 @@ public class LuckyMachineV2 {
         System.out.println(r2);
         System.out.println(r3);
         System.out.println(r4);
+        System.out.println("================");
+        System.out.println(runLuckMachine())
+        ;
     }
 
 }
