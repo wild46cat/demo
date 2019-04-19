@@ -1,6 +1,7 @@
 package com.example.demo.excel.poireaderutils;
 
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -212,8 +213,8 @@ public class ReadExcel2007ByPoi extends DefaultHandler {
                         Date date = HSSFDateUtil.getJavaDate(d);
                         thisStr = formateDateToString(date);
                     } else if (this.formatString != null) {
-                        DecimalFormat df = new DecimalFormat("0.00");
-                        thisStr = df.format(Double.parseDouble(n));
+                        BigDecimal bd = new BigDecimal(n);
+                        thisStr = bd.toPlainString();
                     } else {
                         thisStr = n;
                     }
