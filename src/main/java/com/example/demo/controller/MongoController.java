@@ -16,7 +16,7 @@ public class MongoController {
     /*private static MongoClient mongoClient;
 
     static {
-        mongoClient = new MongoClient("wuxueyou.cn", 27017);
+        mongoClient = new MongoClient("", 27017);
     }
 
     @RequestMapping("/insert")
